@@ -31,6 +31,7 @@ public class UserRegistrationServlet extends HttpServlet {
 		
 		UserDAO userDao = new UserDAO();
 		userDao.registerUser(new User(firstName, lastName, email, phoneNumber, password));
+		System.out.println(asd);
 		
 	}
 
