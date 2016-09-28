@@ -1,18 +1,16 @@
 package controllers;
-import daos.*;
-
-import model.User;
-
 import java.io.IOException;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import org.apache.tomcat.jni.User;
-
 import daos.UserDAO;
+import exceptions.InvalidInputException;
+import exceptions.UserException;
+import models.User;
 
 /**
  * Servlet implementation class UserRegistrationServlet
@@ -30,7 +28,12 @@ public class UserRegistrationServlet extends HttpServlet {
 		String password = request.getParameter("password");
 		
 		UserDAO userDao = new UserDAO();
-		userDao.registerUser(new User(firstName, lastName, email, phoneNumber, password));
+		try {
+			userDao.registerUser(new User(firstName, lastName, email, phoneNumber, password));
+		} catch (UserException | InvalidInputException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		
 		
 	}

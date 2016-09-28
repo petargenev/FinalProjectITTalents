@@ -6,7 +6,7 @@ import java.sql.SQLException;
 
 import connection.*;
 import exceptions.UserException;
-import model.*;
+import models.*;
 
 //data access object
 public class UserDAO {
