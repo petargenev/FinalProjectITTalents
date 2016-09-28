@@ -4,6 +4,8 @@ import exceptions.InvalidInputException;
 
 public class Computer {
 	private String type;
+	
+	private String label;
 	private String model;
 
 	private String ram;
@@ -12,7 +14,9 @@ public class Computer {
 	private String processorSpeed;
 	private String videoCardType;
 	private String hdd;
-	private String os;
+	private String operationSystem;
+	
+	private double price;
 
 	public String getType() {
 		return type;
@@ -54,48 +58,96 @@ public class Computer {
 		return processorType;
 	}
 
-	public void setProcessorType(String processorType) {
-		this.processorType = processorType;
+	public void setProcessorType(String processorType) throws InvalidInputException {
+		if (processorType != null && !processorType.isEmpty()) {
+			this.processorType = processorType;
+		} else {
+			throw new InvalidInputException("Invalid input!");
+		}
 	}
 
 	public String getDisplaySize() {
 		return displaySize;
 	}
 
-	public void setDisplaySize(String displaySize) {
-		this.displaySize = displaySize;
+	public void setDisplaySize(String displaySize) throws InvalidInputException {
+		if (displaySize != null && !displaySize.isEmpty()) {
+			this.displaySize = displaySize;
+		} else {
+			throw new InvalidInputException("Invalid input!");
+		}
 	}
 
 	public String getProcessorSpeed() {
 		return processorSpeed;
 	}
 
-	public void setProcessorSpeed(String processorSpeed) {
-		this.processorSpeed = processorSpeed;
+	public void setProcessorSpeed(String processorSpeed) throws InvalidInputException {
+		if (processorSpeed != null && !processorSpeed.isEmpty()) {
+			this.processorSpeed = processorSpeed;
+		} else {
+			throw new InvalidInputException("Invalid input!");
+		}
 	}
 
 	public String getVideoCardType() {
 		return videoCardType;
 	}
 
-	public void setVideoCardType(String videoCardType) {
-		this.videoCardType = videoCardType;
+	public void setVideoCardType(String videoCardType) throws InvalidInputException {
+		if (videoCardType != null && !videoCardType.isEmpty()) {
+			this.videoCardType = videoCardType;
+		} else {
+			throw new InvalidInputException("Invalid input!");
+		}
 	}
 
 	public String getHdd() {
 		return hdd;
 	}
 
-	public void setHdd(String hdd) {
-		this.hdd = hdd;
+	public void setHdd(String hdd) throws InvalidInputException {
+		if (hdd != null && !hdd.isEmpty()) {
+			this.hdd = hdd;
+		} else {
+			throw new InvalidInputException("Invalid input!");
+		}
 	}
 
-	public String getOs() {
-		return os;
+	public String getOperationSystem() {
+		return operationSystem;
 	}
 
-	public void setOs(String os) {
-		this.os = os;
+	public void setOperationSystem(String os) throws InvalidInputException {
+		if (os != null && !os.isEmpty()) {
+			this.operationSystem = os;
+		} else {
+			throw new InvalidInputException("Invalid operation system!");
+		}
+	}
+
+	public String getLabel() {
+		return label;
+	}
+
+	public void setLabel(String label) throws InvalidInputException {
+		if (label != null && !label.isEmpty()) {
+			this.label = label;
+		} else {
+			throw new InvalidInputException("Invalid label!");
+		}
+	}
+
+	public double getPrice() {
+		return price;
+	}
+
+	public void setPrice(double price) throws InvalidInputException {
+		if(price > 0){
+			this.price = price;
+		}else{
+			throw new InvalidInputException("Invalid input!");
+		}
 	}
 
 	@Override
@@ -127,7 +179,7 @@ public class Computer {
 	public String toString() {
 		return "Computer [type=" + type + ", model=" + model + ", ram=" + ram + ", processorType=" + processorType
 				+ ", displaySize=" + displaySize + ", processorSpeed=" + processorSpeed + ", videoCardType="
-				+ videoCardType + ", hdd=" + hdd + ", os=" + os + "]";
+				+ videoCardType + ", hdd=" + hdd + ", os=" + operationSystem + "]";
 	}
 
 }
