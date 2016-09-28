@@ -2,11 +2,10 @@ package models;
 
 import exceptions.InvalidInputException;
 
-public class Computer {
+public class Computer extends Article{
 	private String type;
+
 	
-	private String label;
-	private String model;
 
 	private String ram;
 	private String processorType;
@@ -15,8 +14,26 @@ public class Computer {
 	private String videoCardType;
 	private String hdd;
 	private String operationSystem;
+
 	
-	private double price;
+
+	
+
+	public Computer(String type, String label, String model, String ram, String processorType, String displaySize,
+			String processorSpeed, String videoCardType, String hdd, String operationSystem, double price)
+			throws InvalidInputException, org.eclipse.jdt.core.compiler.InvalidInputException {
+		super(type,label,price);
+		setModel(model);
+		setRam(ram);
+		setProcessorType(processorType);
+		setDisplaySize(displaySize);
+		setProcessorSpeed(processorSpeed);
+		setVideoCardType(videoCardType);
+		setHdd(hdd);
+		setOperationSystem(operationSystem);
+		
+	}
+	
 
 	public String getType() {
 		return type;
@@ -30,17 +47,7 @@ public class Computer {
 		}
 	}
 
-	public String getModel() {
-		return model;
-	}
 
-	public void setModel(String model) throws InvalidInputException {
-		if (model != null && !model.isEmpty()) {
-			this.model = model;
-		} else {
-			throw new InvalidInputException("Invalid model name!");
-		}
-	}
 
 	public String getRam() {
 		return ram;
@@ -126,60 +133,15 @@ public class Computer {
 		}
 	}
 
-	public String getLabel() {
-		return label;
-	}
-
-	public void setLabel(String label) throws InvalidInputException {
-		if (label != null && !label.isEmpty()) {
-			this.label = label;
-		} else {
-			throw new InvalidInputException("Invalid label!");
-		}
-	}
-
-	public double getPrice() {
-		return price;
-	}
-
-	public void setPrice(double price) throws InvalidInputException {
-		if(price > 0){
-			this.price = price;
-		}else{
-			throw new InvalidInputException("Invalid input!");
-		}
-	}
-
-	@Override
-	public int hashCode() {
-		final int prime = 31;
-		int result = 1;
-		result = prime * result + ((model == null) ? 0 : model.hashCode());
-		return result;
-	}
-
-	@Override
-	public boolean equals(Object obj) {
-		if (this == obj)
-			return true;
-		if (obj == null)
-			return false;
-		if (getClass() != obj.getClass())
-			return false;
-		Computer other = (Computer) obj;
-		if (model == null) {
-			if (other.model != null)
-				return false;
-		} else if (!model.equals(other.model))
-			return false;
-		return true;
-	}
 
 	@Override
 	public String toString() {
-		return "Computer [type=" + type + ", model=" + model + ", ram=" + ram + ", processorType=" + processorType
-				+ ", displaySize=" + displaySize + ", processorSpeed=" + processorSpeed + ", videoCardType="
-				+ videoCardType + ", hdd=" + hdd + ", os=" + operationSystem + "]";
+		return "Computer [type=" + type + ", ram=" + ram + ", processorType=" + processorType + ", displaySize="
+				+ displaySize + ", processorSpeed=" + processorSpeed + ", videoCardType=" + videoCardType + ", hdd="
+				+ hdd + ", operationSystem=" + operationSystem + ", toString()=" + super.toString() + "]";
 	}
+
+
+	
 
 }
