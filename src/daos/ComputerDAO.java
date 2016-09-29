@@ -7,6 +7,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.Collections;
 import java.util.List;
 
 import connection.DBConnection;
@@ -42,7 +43,7 @@ public class ComputerDAO {
 			computers.add(new Computer(type, label, model, ram, processorType, displaySize, processorSpeed,
 					videoCardType, hdd, operationSystem, price));
 		}
-		return computers;
+		return Collections.unmodifiableList(computers);
 	}
 
 	public void addComputer(Computer computer) throws ArticleException {

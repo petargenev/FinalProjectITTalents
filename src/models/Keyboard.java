@@ -4,20 +4,20 @@ import org.eclipse.jdt.core.compiler.InvalidInputException;
 
 public class Keyboard extends Article{
 	private String type;
-	private boolean fastButtons;
+	
 	private String color;
 	
-	public Keyboard(String label, String model, double price, String type, boolean fastButtons, String color)
+	public Keyboard(String label, String model, double price, String type,  String color)
 			throws InvalidInputException {
 		super(label, model, price);
 		setType(type);
-		setFastButtons(fastButtons);
+	
 		setColor(color);
 	}
 
 	@Override
 	public String toString() {
-		return "Keyboard [type=" + type + ", fastButtons=" + fastButtons + ", color=" + color + ", toString()="
+		return "Keyboard [type=" + type + ", color=" + color + ", toString()="
 				+ super.toString() + "]";
 	}
 
@@ -34,13 +34,7 @@ public class Keyboard extends Article{
 		}
 	}
 
-	public boolean isFastButtons() {
-		return fastButtons;
-	}
-
-	public void setFastButtons(boolean fastButtons) {
-		this.fastButtons = fastButtons;
-	}
+	
 
 	public String getColor() {
 		return color;

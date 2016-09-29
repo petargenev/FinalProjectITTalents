@@ -7,13 +7,13 @@ import org.eclipse.jdt.core.compiler.InvalidInputException;
 public class Mouse extends Article {
 
 	private double resolution;
-	private boolean isOptic;
+	
 
-	public Mouse(String label, String model, double price, double resolution, boolean isOptic)
+	public Mouse(String label, String model, double price, double resolution)
 			throws InvalidInputException {
 		super(label, model, price);
 		setResolution(resolution);
-		setOptic(isOptic);
+		
 	}
 
 	public double getResolution() {
@@ -28,17 +28,11 @@ public class Mouse extends Article {
 		}
 	}
 
-	public boolean isOptic() {
-		return isOptic;
-	}
 
-	public void setOptic(boolean isOptic) {
-		this.isOptic = isOptic;
-	}
 
 	@Override
 	public String toString() {
-		return "Mouse [resolution=" + resolution + ", isOptic=" + isOptic + ", toString()=" + super.toString() + "]";
+		return "Mouse [resolution=" + resolution + ", toString()=" + super.toString() + "]";
 	}
 
 	
