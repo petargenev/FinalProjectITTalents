@@ -11,7 +11,7 @@ import java.util.List;
 
 import connection.DBConnection;
 import exceptions.InvalidInputException;
-import models.WashingMachine;
+
 import models.WebCamera;
 
 public class WebCameraDAO {

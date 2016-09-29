@@ -57,9 +57,11 @@ public class ComputerDAO {
 			ps.executeUpdate();
 
 			ResultSet generatedKeys = ps.getGeneratedKeys();
-			int articleId = (Integer) null;
+			int articleId =1;
 			if (generatedKeys.next()) {
-				articleId = (int) generatedKeys.getInt(1);
+				articleId = generatedKeys.getInt(1);
+				
+						
 			}
 
 			PreparedStatement ps1 = connection

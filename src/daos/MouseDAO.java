@@ -6,6 +6,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.Collections;
 import java.util.List;
 
 import connection.DBConnection;
@@ -33,6 +34,6 @@ public class MouseDAO {
 			
 			mouses.add(new Mouse(label, model, price, resolution));
 		}
-		return mouses;
+		return Collections.unmodifiableList(mouses);
 	}
 }

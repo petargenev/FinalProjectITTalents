@@ -6,6 +6,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.Collections;
 import java.util.List;
 
 import connection.DBConnection;
@@ -34,6 +35,6 @@ public class DishwasherDAO {
 			int temperaturesNumber = rs.getInt("temperatures_number");
 			dishwashers.add(new Dishwasher(label, model, price, capacity, energyClass, programmesNumber, temperaturesNumber));
 		}
-		return dishwashers;
+		return Collections.unmodifiableList(dishwashers);
 	}
 }
