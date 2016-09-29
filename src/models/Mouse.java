@@ -6,22 +6,22 @@ import org.eclipse.jdt.core.compiler.InvalidInputException;
 
 public class Mouse extends Article {
 
-	private String resolution;
+	private double resolution;
 	private boolean isOptic;
 
-	public Mouse(String label, String model, double price, String resolution, boolean isOptic)
+	public Mouse(String label, String model, double price, double resolution, boolean isOptic)
 			throws InvalidInputException {
 		super(label, model, price);
 		setResolution(resolution);
 		setOptic(isOptic);
 	}
 
-	public String getResolution() {
+	public double getResolution() {
 		return resolution;
 	}
 
-	public void setResolution(String resolution) throws InvalidInputException {
-		if (resolution != null && !resolution.isEmpty()) {
+	public void setResolution(double resolution) throws InvalidInputException {
+		if (resolution > 0) {
 			this.resolution = resolution;
 		} else {
 			throw new InvalidInputException("Invalid resolution!");

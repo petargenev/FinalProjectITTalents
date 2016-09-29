@@ -5,13 +5,13 @@ import org.eclipse.jdt.core.compiler.InvalidInputException;
 public class WashingMachine extends Article {
 	
 	private String kind;
-	private String roundsPerMinute;
+	private int roundsPerMinute;
 	private String energyClass;
-	private String washingCapacity;
+	private double washingCapacity;
 	
 	
-	public WashingMachine(String label, String model, double price, String kind, String roundsPerMinute,
-			String energyClass, String washingCapacity) throws InvalidInputException {
+	public WashingMachine(String label, String model, double price, String kind, int roundsPerMinute,
+			String energyClass, double washingCapacity) throws InvalidInputException {
 		super(label, model, price);
 		setKind(kind);
 		setRoundsPerMinute(roundsPerMinute);
@@ -32,11 +32,11 @@ public class WashingMachine extends Article {
 		else 
 			throw new InvalidInputException("Invalid input!");
 	}
-	public String getRoundsPerMinute() {
+	public int getRoundsPerMinute() {
 		return roundsPerMinute;
 	}
-	public void setRoundsPerMinute(String roundsPerMinute) throws InvalidInputException {
-		if(roundsPerMinute != null && !roundsPerMinute.isEmpty())
+	public void setRoundsPerMinute(int roundsPerMinute) throws InvalidInputException {
+		if(roundsPerMinute > 0)
 			this.roundsPerMinute = roundsPerMinute;
 		else 
 			throw new InvalidInputException("Invalid input!");
@@ -50,11 +50,11 @@ public class WashingMachine extends Article {
 		else 
 			throw new InvalidInputException("Invalid input!");
 	}
-	public String getWashingCapacity() {
+	public double getWashingCapacity() {
 		return washingCapacity;
 	}
-	public void setWashingCapacity(String washingCapacity) throws InvalidInputException {
-		if(washingCapacity != null && !washingCapacity.isEmpty())
+	public void setWashingCapacity(double washingCapacity) throws InvalidInputException {
+		if(washingCapacity > 0)
 			this.washingCapacity = washingCapacity;
 		else 
 			throw new InvalidInputException("Invalid input!");

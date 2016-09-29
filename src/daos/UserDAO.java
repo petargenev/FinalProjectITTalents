@@ -17,7 +17,7 @@ public class UserDAO {
 		
 		
 		try {
-			PreparedStatement ps = connection.prepareStatement("INSERT INTO users VALUES(null, ?, ?, ?, ?, ?)");	
+			PreparedStatement ps = connection.prepareStatement("INSERT INTO user VALUES(null, ?, ?, ?, ?, ?)");	
 			ps.setString(1, user.getFirstName());
 			ps.setString(2, user.getLastName());
 			ps.setString(3, user.getEmail());

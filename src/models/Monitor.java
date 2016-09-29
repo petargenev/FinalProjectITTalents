@@ -7,13 +7,13 @@ import org.eclipse.jdt.core.compiler.InvalidInputException;
 public class Monitor extends Article{
 
 	private String displayType;
-	private String displaySize;
+	private double displaySize;
 	private String resolution;
 	private String contrast;
 
 	
 
-	public Monitor(String label, String type,String displayType, String displaySize, String resolution,
+	public Monitor(String label, String type,String displayType, double displaySize, String resolution,
 			String contrast, double price) throws InvalidActivityException, InvalidInputException {
 		super(label,type,price);
 		setDisplayType(displayType);
@@ -39,12 +39,12 @@ public class Monitor extends Article{
 		}
 	}
 
-	public String getDisplaySize() {
+	public double getDisplaySize() {
 		return displaySize;
 	}
 
-	public void setDisplaySize(String displaySize) throws InvalidActivityException {
-		if (displaySize != null && !displaySize.isEmpty()) {
+	public void setDisplaySize(double displaySize) throws InvalidActivityException {
+		if (displaySize > 0) {
 			this.displaySize = displaySize;
 		} else {
 			throw new InvalidActivityException("Invalid display size!");
