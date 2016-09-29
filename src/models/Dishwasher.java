@@ -3,12 +3,12 @@ package models;
 import org.eclipse.jdt.core.compiler.InvalidInputException;
 
 public class Dishwasher extends Article {
-	private String capacity;
+	private int capacity;
 	private String energyClass;
 	private int programmesNumber;
 	private int temperaturesNumber;
 
-	public Dishwasher(String label, String model, double price, String capacity, String energyClass,
+	public Dishwasher(String label, String model, double price, int capacity, String energyClass,
 			int programmesNumber, int temperaturesNumber) throws InvalidInputException {
 		super(label, model, price);
 		setCapacity(capacity);
@@ -24,12 +24,12 @@ public class Dishwasher extends Article {
 				+ "]";
 	}
 
-	public String getCapacity() {
+	public int getCapacity() {
 		return capacity;
 	}
 
-	public void setCapacity(String capacity) throws InvalidInputException {
-		if (capacity != null && !capacity.isEmpty())
+	public void setCapacity(int capacity) throws InvalidInputException {
+		if (capacity >0)
 			this.capacity = capacity;
 		else
 			throw new InvalidInputException("Invalid input!");

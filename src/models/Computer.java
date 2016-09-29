@@ -7,20 +7,20 @@ public class Computer extends Article{
 
 	
 
-	private String ram;
+	private int ram;
 	private String processorType;
-	private String displaySize;
-	private String processorSpeed;
+	private double displaySize;
+	private double processorSpeed;
 	private String videoCardType;
-	private String hdd;
+	private int hdd;
 	private String operationSystem;
-
+	
 	
 
 	
 
-	public Computer(String type, String label, String model, String ram, String processorType, String displaySize,
-			String processorSpeed, String videoCardType, String hdd, String operationSystem, double price)
+	public Computer(String type, String label, String model, int ram, String processorType, double displaySize,
+			double processorSpeed, String videoCardType, int hdd, String operationSystem, double price)
 			throws InvalidInputException, org.eclipse.jdt.core.compiler.InvalidInputException {
 		super(type,label,price);
 		setModel(model);
@@ -49,12 +49,12 @@ public class Computer extends Article{
 
 
 
-	public String getRam() {
+	public int getRam() {
 		return ram;
 	}
 
-	public void setRam(String ram) throws InvalidInputException {
-		if (ram != null && !ram.isEmpty()) {
+	public void setRam(int ram) throws InvalidInputException {
+		if (ram >0) {
 			this.ram = ram;
 		} else {
 			throw new InvalidInputException("Invalid input!");
@@ -73,24 +73,24 @@ public class Computer extends Article{
 		}
 	}
 
-	public String getDisplaySize() {
+	public double getDisplaySize() {
 		return displaySize;
 	}
 
-	public void setDisplaySize(String displaySize) throws InvalidInputException {
-		if (displaySize != null && !displaySize.isEmpty()) {
+	public void setDisplaySize(double displaySize) throws InvalidInputException {
+		if (displaySize >0) {
 			this.displaySize = displaySize;
 		} else {
 			throw new InvalidInputException("Invalid input!");
 		}
 	}
 
-	public String getProcessorSpeed() {
+	public double getProcessorSpeed() {
 		return processorSpeed;
 	}
 
-	public void setProcessorSpeed(String processorSpeed) throws InvalidInputException {
-		if (processorSpeed != null && !processorSpeed.isEmpty()) {
+	public void setProcessorSpeed(double processorSpeed) throws InvalidInputException {
+		if (processorSpeed > 0) {
 			this.processorSpeed = processorSpeed;
 		} else {
 			throw new InvalidInputException("Invalid input!");
@@ -109,12 +109,12 @@ public class Computer extends Article{
 		}
 	}
 
-	public String getHdd() {
+	public int getHdd() {
 		return hdd;
 	}
 
-	public void setHdd(String hdd) throws InvalidInputException {
-		if (hdd != null && !hdd.isEmpty()) {
+	public void setHdd(int hdd) throws InvalidInputException {
+		if (hdd > 0) {
 			this.hdd = hdd;
 		} else {
 			throw new InvalidInputException("Invalid input!");
